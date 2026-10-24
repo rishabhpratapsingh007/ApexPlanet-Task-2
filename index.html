@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ApexPlanet Task 2 project demonstrating contact form validation, responsive layouts, and a dynamic to-do list.">
+  <title>TaskFlow | ApexPlanet Task 2</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home"><span class="brand-mark">T</span> TaskFlow</a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#todo">To-do list</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero container">
+      <div class="hero-copy">
+        <p class="eyebrow">APEXPLANET · TASK 2</p>
+        <h1>Plan your work.<br><span>Make it happen.</span></h1>
+        <p class="hero-description">A simple, responsive productivity page built with HTML, CSS, and JavaScript. Organize tasks and send a validated contact message.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#todo">Try the to-do list</a>
+          <a class="button button-secondary" href="#contact">Contact us</a>
+        </div>
+        <div class="hero-note"><span class="status-dot"></span> Responsive on desktop, tablet, and mobile</div>
+      </div>
+      <div class="hero-card" aria-label="Task summary preview">
+        <div class="preview-top"><span class="preview-icon">✓</span><span class="preview-label">TODAY'S FOCUS</span><span class="preview-menu">•••</span></div>
+        <h2>Small steps, big progress.</h2>
+        <p class="muted">Keep your next action clear and manageable.</p>
+        <div class="preview-task"><span class="fake-check checked">✓</span><span class="completed-text">Review project requirements</span></div>
+        <div class="preview-task"><span class="fake-check"></span><span>Build a responsive layout</span></div>
+        <div class="preview-task"><span class="fake-check"></span><span>Test form validation</span></div>
+        <div class="progress-line"><span></span></div>
+        <div class="preview-footer"><span>Daily progress</span><strong>1 of 3</strong></div>
+      </div>
+    </section>
+
+    <section id="features" class="features-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">WHAT YOU CAN DO</p>
+          <h2>Everything you need to get started</h2>
+          <p class="muted">This project demonstrates the four activities listed in the Task 2 brief.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card"><span class="feature-icon lavender">01</span><h3>Contact form</h3><p>Structured form fields with clear labels and styling.</p></article>
+          <article class="feature-card"><span class="feature-icon mint">02</span><h3>Form validation</h3><p>Checks required inputs and validates email format.</p></article>
+          <article class="feature-card"><span class="feature-icon peach">03</span><h3>Responsive layout</h3><p>Flexbox navigation, CSS Grid cards, and media queries.</p></article>
+          <article class="feature-card"><span class="feature-icon blue">04</span><h3>Dynamic to-do list</h3><p>Add, complete, and remove tasks interactively.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="todo" class="todo-section container">
+      <div class="section-heading align-left">
+        <p class="eyebrow">STAY ORGANIZED</p>
+        <h2>Your task list</h2>
+        <p class="muted">Add tasks, mark them complete, or remove them. Tasks are kept for the current page session.</p>
+      </div>
+      <div class="todo-panel">
+        <form id="todo-form" class="todo-entry">
+          <label class="sr-only" for="todo-input">New task</label>
+          <input id="todo-input" name="task" type="text" maxlength="120" placeholder="What do you need to do?" required>
+          <button class="button button-primary" type="submit">Add task <span aria-hidden="true">+</span></button>
+        </form>
+        <div class="todo-toolbar"><span id="task-count" aria-live="polite">0 tasks</span><button id="clear-completed" class="text-button" type="button">Clear completed</button></div>
+        <ul id="todo-list" class="todo-list" aria-label="Your tasks">
+          <li class="empty-state" id="empty-state">Your list is clear. Add a task to get started!</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="container contact-layout">
+        <div class="contact-copy">
+          <p class="eyebrow">LET'S CONNECT</p>
+          <h2>Have a question?<br><span>Send a message.</span></h2>
+          <p class="muted">Use the form to try the client-side validation. This demonstration does not send data to a server.</p>
+          <div class="contact-detail"><span class="detail-icon">✉</span><div><strong>Email</strong><p>hello@example.com</p></div></div>
+          <div class="contact-detail"><span class="detail-icon">⌂</span><div><strong>Built for learning</strong><p>ApexPlanet Web Development Internship · Task 2</p></div></div>
+        </div>
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Full name <span>*</span></label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+              <small class="error-message" id="name-error"></small>
+            </div>
+            <div class="form-field">
+              <label for="email">Email address <span>*</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              <small class="error-message" id="email-error"></small>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="subject">Subject <span>*</span></label>
+            <input id="subject" name="subject" type="text" placeholder="How can we help?" required>
+            <small class="error-message" id="subject-error"></small>
+          </div>
+          <div class="form-field">
+            <label for="message">Message <span>*</span></label>
+            <textarea id="message" name="message" rows="4" placeholder="Write your message..." required></textarea>
+            <small class="error-message" id="message-error"></small>
+          </div>
+          <button class="button button-primary submit-button" type="submit">Validate and send <span aria-hidden="true">→</span></button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+          <p class="form-footnote">* Required fields · Demo only; no message is sent to a server.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content"><a class="brand footer-brand" href="#home"><span class="brand-mark">T</span> TaskFlow</a><p>Created for ApexPlanet Web Development Internship · Task 2</p><a href="#home">Back to top ↑</a></div>
+  </footer>
+</body>
+</html>
